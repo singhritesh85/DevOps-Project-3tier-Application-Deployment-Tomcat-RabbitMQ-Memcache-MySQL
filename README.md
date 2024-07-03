@@ -87,6 +87,9 @@ Finally screenshot shown below Access of the Application.
 use the username **admin_vp** and password **admin_vp** to login.
 
 ![image](https://github.com/singhritesh85/DevOps-Project-3tier-Application-Deployment-Tomcat-RabbitMQ-Memcache-MySQL/assets/56765895/c0a7c45e-3325-4d6f-8e62-afb16f7d9841)
+
+When first time you click on User Id the user information will get from MySQL Database and this information will be inserted in memcache. So next time when you click on User Id the user information will get from the memcache.
+
 ![image](https://github.com/singhritesh85/DevOps-Project-3tier-Application-Deployment-Tomcat-RabbitMQ-Memcache-MySQL/assets/56765895/1fa1f23e-6e39-4c06-9eed-12baeeab33f0)
 ![image](https://github.com/singhritesh85/DevOps-Project-3tier-Application-Deployment-Tomcat-RabbitMQ-Memcache-MySQL/assets/56765895/24bb5b28-78a7-4337-a7a1-c799f6e58bd9)
 ![image](https://github.com/singhritesh85/DevOps-Project-3tier-Application-Deployment-Tomcat-RabbitMQ-Memcache-MySQL/assets/56765895/c6c0dccf-3a3f-4b07-a51d-0f42876a74c1)
