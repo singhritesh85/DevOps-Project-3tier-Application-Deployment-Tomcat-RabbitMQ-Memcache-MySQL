@@ -70,3 +70,18 @@ pipeline{
     }
 }
 ```
+Before running the Jenkins Job change the **application.properties** file present at the path Three-tier-WebApplication/src/main/resources in the Repository https://github.com/singhritesh85/Three-tier-WebApplication.git as shown in the screenshot below.
+![image](https://github.com/singhritesh85/DevOps-Project-3tier-Application-Deployment-Tomcat-RabbitMQ-Memcache-MySQL/assets/56765895/34ea8ee5-da11-48eb-a7c5-f3638488b7b6)
+<br><br/>
+The Screenshot for SonarQube Analysis and Nexus Artifacts Upload is as shown below.
+![image](https://github.com/singhritesh85/DevOps-Project-3tier-Application-Deployment-Tomcat-RabbitMQ-Memcache-MySQL/assets/56765895/e06ed6e5-7494-4e55-8847-8cd78ad3c5e5)
+![image](https://github.com/singhritesh85/DevOps-Project-3tier-Application-Deployment-Tomcat-RabbitMQ-Memcache-MySQL/assets/56765895/84082051-b591-4b51-acf2-f61a3df49d46)
+<br><br/>
+Do the entry in Route53 as shown in the screenshot below.
+![image](https://github.com/singhritesh85/DevOps-Project-3tier-Application-Deployment-Tomcat-RabbitMQ-Memcache-MySQL/assets/56765895/7f842890-a71e-41e8-9dae-43692bf24b04)
+<br><br/>
+Finally screenshot shown below Access of the Application.
+<br><br/>
+![image](https://github.com/singhritesh85/DevOps-Project-3tier-Application-Deployment-Tomcat-RabbitMQ-Memcache-MySQL/assets/56765895/1fa1f23e-6e39-4c06-9eed-12baeeab33f0)
+![image](https://github.com/singhritesh85/DevOps-Project-3tier-Application-Deployment-Tomcat-RabbitMQ-Memcache-MySQL/assets/56765895/24bb5b28-78a7-4337-a7a1-c799f6e58bd9)
+![image](https://github.com/singhritesh85/DevOps-Project-3tier-Application-Deployment-Tomcat-RabbitMQ-Memcache-MySQL/assets/56765895/c6c0dccf-3a3f-4b07-a51d-0f42876a74c1)
