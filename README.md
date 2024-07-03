@@ -9,3 +9,64 @@ For RabbitMQ installation do as shown in screenshot below.
 ![image](https://github.com/singhritesh85/DevOps-Project-3tier-Application-Deployment-Tomcat-RabbitMQ-Memcache-MySQL/assets/56765895/92b73038-b99e-4f70-af64-ffa4fea315aa)
 ![image](https://github.com/singhritesh85/DevOps-Project-3tier-Application-Deployment-Tomcat-RabbitMQ-Memcache-MySQL/assets/56765895/edc0dae0-1c47-46ac-a0b0-f481f5401ea9)
 ![image](https://github.com/singhritesh85/DevOps-Project-3tier-Application-Deployment-Tomcat-RabbitMQ-Memcache-MySQL/assets/56765895/2f3d9712-2473-494a-b4ff-a969ef6833f7)
+<br><br/>
+Run the below command to create RDS MySQL database entry. To do so first of all create a file db.sql using the content as shown in the screenshot below.
+![image](https://github.com/singhritesh85/DevOps-Project-3tier-Application-Deployment-Tomcat-RabbitMQ-Memcache-MySQL/assets/56765895/1d41e645-aebb-495d-907b-8c4a3c9ff657)
+![image](https://github.com/singhritesh85/DevOps-Project-3tier-Application-Deployment-Tomcat-RabbitMQ-Memcache-MySQL/assets/56765895/676aef44-47c6-4827-b132-32b6695d1479)
+<br><br/>
+Establish the passwordless authentication between Jenkins Slave Node and Tomcat Server as shown in the screenshot below.
+![image](https://github.com/singhritesh85/DevOps-Project-3tier-Application-Deployment-Tomcat-RabbitMQ-Memcache-MySQL/assets/56765895/a1258cc0-f4c7-4733-ae18-c7bb97a1d0a9)
+```
+pipeline{
+    agent{
+        node{
+            label "Slave-1"
+            customWorkspace "/home/jenkins/3tierapp/"
+        }
+    }
+    environment {
+        JAVA_HOME="/usr/lib/jvm/java-17-amazon-corretto.x86_64"
+        PATH="$PATH:$JAVA_HOME/bin:/opt/apache-maven/bin:/opt/node-v16.0.0/bin:/usr/local/bin"
+    }
+    parameters { 
+        string(name: 'COMMIT_ID', defaultValue: '', description: 'Provide the Commit ID') 
+    }
+    stages{
+        stage("Clone-code"){
+            steps{
+                cleanWs()
+                checkout scmGit(branches: [[name: '${COMMIT_ID}']], extensions: [], userRemoteConfigs: [[credentialsId: 'github-cred', url: 'https://github.com/singhritesh85/Three-tier-WebApplication.git']])
+            }
+        }
+        stage("SonarQubeAnalysis-and-Build"){
+            steps {
+                withSonarQubeEnv('SonarQube-Server') {
+                    sh 'mvn clean package sonar:sonar'
+                }
+            }
+        }
+        //stage("Quality Gate") {
+        //    steps {
+        //        timeout(time: 1, unit: 'HOURS') {
+                    //waitForQualityGate abortPipeline: true
+        //            waitForQualityGate abortPipeline: false, credentialsId: 'sonarqube'
+        //        }
+        //    }
+        //}
+        stage("Nexus-Artifact Upload"){
+            steps{
+                script{
+                    def mavenPom = readMavenPom file: 'pom.xml'
+                    def nexusRepoName = mavenPom.version.endsWith("SNAPSHOT") ? "maven-snapshot" : "maven-release"
+                    nexusArtifactUploader artifacts: [[artifactId: 'vprofile', classifier: '', file: 'target/vprofile-v2.war', type: 'war']], credentialsId: 'nexus', groupId: 'com.visualpathit', nexusUrl: 'nexus.singhritesh85.com', nexusVersion: 'nexus3', protocol: 'https', repository: "${nexusRepoName}", version: "${mavenPom.version}"
+                }    
+            }
+        }
+        stage("Deployment"){
+            steps{
+                      sh 'scp -rv target/vprofile-v2.war tomcat-admin@10.10.4.225:/opt/apache-tomcat/webapps/ROOT.war'
+            }
+        }
+    }
+}
+```
