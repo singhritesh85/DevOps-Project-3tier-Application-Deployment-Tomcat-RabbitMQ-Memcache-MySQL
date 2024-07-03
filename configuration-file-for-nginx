@@ -1,0 +1,33 @@
+vim /etc/nginx/conf.d/myweb.conf
+
+server {
+     listen       80;
+     server_name  www.singhritesh85.com;
+     return 301 https://www.singhritesh85.com$request_uri;
+     location / {
+          proxy_pass "http://test" ;
+     }
+}
+server {
+    listen 443 ssl;
+#    listen [::]:443 ssl http2;
+
+    server_name www.singhritesh85.com;
+
+    location / {
+        proxy_pass "http://test";
+    }
+
+    ssl_certificate /root/nginx.crt;
+    ssl_certificate_key /root/nginx.key;
+}
+
+
+
+vim /etc/nginx/conf.d/upstream.conf
+
+upstream test {
+   server 10.10.4.24:8080;
+}
+
+Provide the the certificate file at the specified path and restart the nginx service using the command systemctl restart nginx
