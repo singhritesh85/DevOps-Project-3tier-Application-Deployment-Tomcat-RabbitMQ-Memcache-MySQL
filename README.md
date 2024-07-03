@@ -85,3 +85,18 @@ Finally screenshot shown below Access of the Application.
 ![image](https://github.com/singhritesh85/DevOps-Project-3tier-Application-Deployment-Tomcat-RabbitMQ-Memcache-MySQL/assets/56765895/1fa1f23e-6e39-4c06-9eed-12baeeab33f0)
 ![image](https://github.com/singhritesh85/DevOps-Project-3tier-Application-Deployment-Tomcat-RabbitMQ-Memcache-MySQL/assets/56765895/24bb5b28-78a7-4337-a7a1-c799f6e58bd9)
 ![image](https://github.com/singhritesh85/DevOps-Project-3tier-Application-Deployment-Tomcat-RabbitMQ-Memcache-MySQL/assets/56765895/c6c0dccf-3a3f-4b07-a51d-0f42876a74c1)
+
+<br><br/>
+<br><br/>
+```
+Source Code:-  https://github.com/singhritesh85/Three-tier-WebApplication.git
+```
+<br><br/>
+<br><br/>
+<br><br/>
+<br><br/>
+<br><br/>
+<br><br/>
+```
+Reference:-  https://github.com/logicopslab/vprofile-project.git
+```
