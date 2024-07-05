@@ -1,7 +1,7 @@
 ### DevOps-Project-3tier-Application-Deployment-Tomcat-RabbitMQ-Memcache-MySQL
 
 Architecture Diagram for three tier Application Deployment
-![image](https://github.com/singhritesh85/DevOps-Project-3tier-Application-Deployment-Tomcat-RabbitMQ-Memcache-MySQL/assets/56765895/e63ee165-1a44-45b1-be90-e545a250f0ff)
+![image](https://github.com/singhritesh85/DevOps-Project-3tier-Application-Deployment-Tomcat-RabbitMQ-Memcache-MySQL/assets/56765895/122f0eb8-ae6d-4e0e-9c58-a6daf78ac273)
 Using the Terraform Script present in this repository create the end-to-end Infrastructure. 
 <br><br/>
 For RabbitMQ installation do as shown in screenshot below.
