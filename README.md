@@ -1,4 +1,4 @@
-### DevOps-Project-3tier-Application-Deployment-Tomcat-RabbitMQ-Memcache-MySQL
+### DevOps-Project-3tier-Application-Deployment-Tomcat-RabbitMQ-Memcache-MySQL-Aws
 
 Architecture Diagram for three tier Application Deployment
 ![image](https://github.com/singhritesh85/DevOps-Project-3tier-Application-Deployment-Tomcat-RabbitMQ-Memcache-MySQL/assets/56765895/122f0eb8-ae6d-4e0e-9c58-a6daf78ac273)
